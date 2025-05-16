@@ -1,0 +1,174 @@
+Subject,Test Name,Type,Designer,Status,GxP,Category,Description,[Step]Step Name,[Step]Description,[Step]Expected Result,[Step]Evidence Required,[Step]Requirement Number
+Subject\Sample Allocation,Security Matrix - Appliciation and Tab Visibility,Manual,SIVADGX,Draft,Y,OQ-Scripted,"This Test is to verify the security Matrix for Sample Allocation related objects
+
+Objectives:
+1.To Verify that the Object Level access and Field Level Specification  of Sample Allocation Cycle  and Sample Allocation Request entity
+
+Preconditions:
+-Application IQ documents must be executed and post approved in the QA environment.
+Users:
+User#1: RSM/RD User; Profile name: ADC - Sales Manager
+User#2: Compliance User; Profile name: ADC - Compliance User
+
+References
+[COM-25-00323]- Change Request Sales Assist Release 25R3 (Veeva 25R1)
+
+Notes to Tester
+The full screen should be captured rather than a field, pop-up box, etc.
+The user id should be visible in the screenprint if shown on the screen.
+When multiple screen prints are captured for a step, the numbering should be documented for each (1 of 3)
+When fields are being verified, the field name must be expanded (fully visible) in the screen print.
+Multiple screen prints might be needed to capture the full intent of the requirement.
+
+",Step 1,"PreConditions
+
+Users:
+User #1:  RSM/RD User; Profile =ADC - Sales Manager
+User #2: Compliance User; Profile = ADC - Compliance User
+
+
+Capture screen prints of User details page along with Profile","All Preconditions will be met
+Screen prints of User details page along with Profile will be captured",Y,N/A
+ , , , , , , , ,Step 2,"Log in to Salesforce as User #1
+
+Capture Screenprint","User #1 will be successfully logged in to Salesforce
+Screen print will be captured",Y,N/A
+ , , , , , , , ,Step 3,"> Click on App Launcher >Search for ""Veeva CRM Lightning"" app
+
+Verify that the User #1 is able to find and select ""Veeva CRM Lightning"" app
+Capture Screen prints","User #1 will be able to find and select ""Veeva CRM Lightning"" app
+
+Screen prints will be captured",Y,N/A
+ , , , , , , , ,Step 4,"> In ""Veeva CRM Lightning"" app > Select ""Sample Allocation Request"" tab >
+
+Verify that the User #1 is able to select Sample Allocation Request tab
+Capture Screen prints","User #1 will be able to select Sample Allocation Request tab
+
+Screen prints will be captured",Y,N/A
+ , , , , , , , ,Step 5,"> Click on Sample Allocation Request tab > Select any Sample Allocation Cycle
+
+> Verify that the Sample Allocation Cycle is selected successfully and field values are displayed as per the Security Matrix (FLS)
+
+Capture screen prints
+
+Note: Below fields are not visible on UI page
+
+a)Sample_Allocation_Request__c.OwnerId
+b)Sample_Allocation_Request__c.Name
+c)Sample_Allocation_Request__c.RSM_Territory__c
+d)Sample_Allocation_Request__c.Sales_Manager__c
+e)Sample_Allocation_Request__c.File_Transferred__c
+f)Sample_Allocation_Req_Hdr__c.Cycle_ID__c
+g)Sample_Allocation_Req_Hdr__c.Name
+h)Sample_Allocation_Req_Hdr__c.OHI_Balance__c
+i)Sample_Allocation_Req_Hdr__c.OHI_Limit__c
+j)Sample_Allocation_Req_Hdr__c.Request_ID__c
+k)Sample_Allocation_Req_Hdr__c.File_Transferred__c
+l)Sample_Allocation_Req_Detail__c.Cycle_ID__c
+m)Sample_Allocation_Req_Detail__c.Default_Allocation__c
+n)Sample_Allocation_Req_Detail__c.Max_Order_Qty__c
+o)Sample_Allocation_Req_Detail__c.OHI_Adjustment__c
+p)Sample_Allocation_Req_Detail__c.OHI_Qty__c
+q)Sample_Allocation_Req_Detail__c.Pending_Shipment_Qty__c
+r)Sample_Allocation_Req_Detail__c.Name
+s)Sample_Allocation_Req_Detail__c.Request_Rep_ID__c
+t)Sample_Allocation_Req_Detail__c.File_Transferred__c
+u)Sample_Allocation_Request__c.Cycle_ID__c
+v)Sample_Allocation_Req_Detail__c.Sample_Allocation_Cycle_Product__c
+
+.","Sample Allocation Cycle will be selected successfully and field values will be displayed as per the Security Matrix (FLS)
+
+Screen prints will be captured",Y,N/A
+ , , , , , , , ,Step 6,"Verify that the User #1 is not able to view Sample Allocation Cycle tab
+
+Note: 
+1. As Sample Allocation Cycle tab is not visible for User #1 fields related to ""Sample Allocation Cycle"", ""Sample Allocation Cycle Product"" are not verified.
+2. In the Excel sheet, fields are marked as Read Only to fetch the values for RSM/MD.
+
+
+Capture screen print","User #1 will  not be able to view Sample Allocation Cycle tab
+
+Screen print will be captured",Y,N/A
+ , , , , , , , ,Step 7,Log out from Salesforce as User #1,User #1 will be successfully logged out from Salesforce,N,N/A
+ , , , , , , , ,Step 8,"Log in to Salesforce as User #2
+Capture Screen print","User #2 will be successfully logged in to Salesforce
+Screen print will be captured",Y,N/A
+ , , , , , , , ,Step 9,"> Click on App Launcher >Search for ""Veeva CRM Lightning"" app
+
+Verify that the User #2 is able to find and select ""Veeva CRM Lightning"" app
+Capture Screen prints","User #2 will be able to find and select ""Veeva CRM Lightning"" app
+
+Screen prints will be captured",Y,N/A
+ , , , , , , , ,Step 10,"> In ""Veeva CRM Lightning"" app > Select ""Sample Allocation Cycles"" tab >
+
+Verify that the User #2 is able to select Sample Allocation Cycle tab
+Capture Screen prints","User #2 will be able to select Sample Allocation Cycle tab
+
+Screen prints will be captured",Y,N/A
+ , , , , , , , ,Step 11,"> Click on New button >
+
+> Verify that the User #2 is able to create the New Sample Allocation Cycle
+
+Capture screen prints","User #2 will be able to create the New Sample Allocation Cycle
+
+Screen prints will be captured",Y,N/A
+ , , , , , , , ,Step 12,"> Enter Cycle Name, Cycle Date > Click on Save button
+
+> Verify that the Sample Allocation Cycle is created successfully and field values are displayed as per the Security Matrix (FLS Sheet).
+
+Capture screen prints
+
+Note: Below fields are not visible in UI Page
+a) Sample_Allocation_Cycle__c.OwnerId
+b) Sample_Allocation_Cycle__c.File_Transferred__c
+c) Sample_Allocation_Cycle_Product__c.Allocation_Sequence__c
+d) Sample_Allocation_Cycle_Product__c.Display_Sequence__c
+e) Sample_Allocation_Cycle_Product__c.Name
+f)Sample_Allocation_Cycle_Product__c.Sample_Allocation_Cycle__c
+g) Sample_Allocation_Cycle_Product__c.SKU_ID__c
+h) Sample_Allocation_Cycle_Product__c.Parent_Product__c
+i) Sample_Allocation_Cycle_Product__c.Identifier__c
+j)Sample_Allocation_Cycle_Product__c.Display_Sequence__c","Sample Allocation Cycle will be created successfully and fields are ""Read Only"" as per the Security Matrix (FLS sheet).
+
+Screen prints will be captured",Y,N/A
+ , , , , , , , ,Step 13,"> Click on App Launcher >Select ""Veeva CRM Lightning"" app > Select ""Sample Allocation Request"" tab >
+
+Verify that the User #2 is able to select Sample Allocation Request tab
+Capture Screen prints","User #2 will be able to select the Sample Allocation Request tab
+
+Screen prints will be captured",Y,N/A
+ , , , , , , , ,Step 14,"> Click on Sample Allocation Request tab > Select any Sample Allocation Cycle
+
+> Verify that the Sample Allocation Cycle is selected successfully and field values are displayed as per the Security Matrix (FLS)
+
+Capture screen prints
+
+Note: Below fields are not visible on UI page
+
+a)Sample_Allocation_Request__c.OwnerId
+b)Sample_Allocation_Request__c.Name
+c)Sample_Allocation_Request__c.RSM_Territory__c
+d)Sample_Allocation_Request__c.Sales_Manager__c
+e)Sample_Allocation_Request__c.File_Transferred__c
+f)Sample_Allocation_Req_Hdr__c.Cycle_ID__c
+g)Sample_Allocation_Req_Hdr__c.Name
+h)Sample_Allocation_Req_Hdr__c.OHI_Balance__c
+i)Sample_Allocation_Req_Hdr__c.OHI_Limit__c
+j)Sample_Allocation_Req_Hdr__c.Request_ID__c
+k)Sample_Allocation_Req_Hdr__c.File_Transferred__c
+l)Sample_Allocation_Req_Detail__c.Cycle_ID__c
+m)Sample_Allocation_Req_Detail__c.Default_Allocation__c
+n)Sample_Allocation_Req_Detail__c.Max_Order_Qty__c
+o)Sample_Allocation_Req_Detail__c.OHI_Adjustment__c
+p)Sample_Allocation_Req_Detail__c.OHI_Qty__c
+q)Sample_Allocation_Req_Detail__c.Pending_Shipment_Qty__c
+r)Sample_Allocation_Req_Detail__c.Name
+s)Sample_Allocation_Req_Detail__c.Request_Rep_ID__c
+t)Sample_Allocation_Req_Detail__c.File_Transferred__c
+u)Sample_Allocation_Request__c.Cycle_ID__c
+v)Sample_Allocation_Req_Detail__c.Sample_Allocation_Cycle_Product__c
+
+Note: In the Security Matrix (FLS) ,Sales Rep and Territory Id are marked as visible due to User has got edit access on object level, so by default the required fields are also editable.","Sample Allocation Cycle will be selected successfully and field values will be displayed as per the Security Matrix (FLS)
+
+Screen prints will be captured",Y,N/A
+ , , , , , , , ,Step 15,Log out from Salesforce as User #2,User #2 will be successfully logged out from Salesforce,N,N/A
