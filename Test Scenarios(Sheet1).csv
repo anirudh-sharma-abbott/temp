@@ -1,0 +1,153 @@
+FRS Number,FRS CRITICALITY,Module,FRS Description
+608,2 - Quality Non-Critical (QNC),Sample Allocation Cycle,"The system shall allow all Compliance users to Create and view the allocation cycles in ""Sample Allocation Cycles"" tab under ""Veeva CRM Lightning"" application, completing the following required fields (Territories to be excluded excepted):
+- Cycle Name
+- Cycle Date
+- Cycle Open Date (Read-only, Default Value = Cycle Date - 11)
+- Cycle Close Date (Read-only, Default Value = Cycle Date - 7)
+- RSM/RD Reminder Date (Read-only, Default Value = Cycle Date - 9)
+- Shipping Date (Read-only, Default Value = Cycle Date - 2)
+- Rep Territories to be excluded (Optional Field, User can select multiple values)
+- OHI Limit for DSS 
+- OHI Limit for DSA
+- VTC Adjustment (Read-only)
+
+Products Section (User shall provide the values for all in-scope products)
+- Product Name (Read-only)
+- Max Orders for DSS
+- Max Orders for DSA
+- VTC Adjustment Allocation
+- Default Allocation Order (Read-only)
+- Quantity per Box (Read-only)"
+609,2 - Quality Non-Critical (QNC),Sample Allocation Cycle,"The system shall prepopulate the following values from the recently closed Sample Allocation Cycle during new Cycle creation.
+- Territories to be excluded
+- OHI Limit for DSS 
+- OHI Limit for DSA
+- Max Orders for DSS
+- Max  Orders for DSA
+- VTC Adjustment Allocation"
+610,2 - Quality Non-Critical (QNC),Sample Allocation Cycle,"The system shall display confirmation warning message while saving a Sample Allocation Cycle, that the values will be locked for the current cycle post save."
+611,2 - Quality Non-Critical (QNC),Sample Allocation Request,"The system shall allow all Regional Sales Manager (RSM) and Regional Director (RD) users to view all their Sales Representatives and their Sample allocation values for in-scope products in ""Sample Allocation Requests"" tab under ""Veeva CRM Lightning"" app, displaying the following details:
+Filters:
+- Sample Allocation Cycle (Default to current cycle; system shall allow user to select any previous cycle and view the data)
+- RSM/RD Submission Status (Default Value = New, Allowed Values: New, Submitted)
+
+Details to be displayed:
+- Sales Rep Name
+- Territory
+- Sample  Eligible? (Default value=Selected, unselect when the Territory of the Sales Rep is part of the Territories to be excluded list for the selected cycle)
+- Reason (Free Text, Required when Eligibility is manually unchecked; If Eligibility is Unchecked by default, prepopulate value - ""Sales Rep Missing Training"")
+- VTC
+- Total OHI (Allow users to view product-wise OHI values for the concerned Sales Rep) 
+- Total Pending Shipments (Allow users to view product-wise Pending Shipment values for the concerned Sales Rep)
+- Total OHI+Pending Shipments
+- Product-wise RSM/RD Allocations
+- Product-wise Final Orders"
+612,2 - Quality Non-Critical (QNC),Sample Allocation Request,"The system shall allow all Compliance users to view all Sales Representatives and their sample allocation values for all in-scope products under ""Sample Allocation Request"" tab, displaying the following the filters and the details:
+
+Filters:
+- Sample Allocation Cycle (Default to current cycle; system shall allow user to select any previous cycle and view the data)
+- Territory (Default to blank; system shall allow user to select any RSM Territory to filter the data)
+- RSM/RD Submission Status  (Default to All; system shall allow user to select All, New,  Submitted Status to filter the data)
+
+Details to be displayed:
+- Sales Rep Name
+- Territory 
+- Sample Eligible? (Default value=Selected, unselect when the Territory of the Sales Rep is part of the Territories to be excluded list for the selected cycle)
+- Reason (Free Text, Required when Eligibility is manually unchecked; If Eligibility is Unchecked by default, prepopulate value - ""Sales Rep Missing Training"")
+- VTC
+- Total OHI  (Allow users to view product-wise OHI values for the concerned Sales Rep) 
+- Total Pending Shipments (Allow users to view product-wise Pending Shipment values for the concerned Sales Rep) 
+- Total OHI+Pending Shipments
+- Product-wise RSM/RD Allocations 
+- Product-wise Final Orders"
+613,2 - Quality Non-Critical (QNC),Sample Allocation Request,"The system shall allow all users to update Reason and Product-wise RSM/RD Allocations for their Sales Representatives, and save the Sample Allocation Request for the current sample Allocation cycle."
+614,2 - Quality Non-Critical (QNC),Sample Allocation Request,The system shall allow Compliance Users to update & RSM/RD users to only uncheck the Sample Eligible? Field and save the Sample Allocation Request for the current Sample Allocation Cycle.
+615,2 - Quality Non-Critical (QNC),Sample Allocation Request,"System shall calculate the OHI Balance for all the Sales Reps using below logics in order to limit the allocations to Sales Reps.
+- OHI Balance: OHI Limit from Allocation cycle - (Current OHI + Current Pending shipments) of all products for the Sales Rep"
+616,2 - Quality Non-Critical (QNC),,"When there is an OHI balance, system shall default the final orders for the In-scope products to Sales Reps in multiples of boxes upto ""Max Orders"" by following the ""Allocation Sequence"" given in the Sample Allocation Cycle. 
+ - Default allocation logic: When Sales Rep's OHI Balance>=Maximum Orders then allocate Maximum Orders else allocate OHI balance in multiples of boxes."
+617,2 - Quality Non-Critical (QNC),Sample Allocation Request,System shall allow users to allocate or de-allocate the products(Final Orders) through RSM allocations only in multiples of its box quantities.
+618,2 - Quality Non-Critical (QNC),Sample Allocation Request,System shall not allow de-allocation of products (negative values) when there is no default Final Orders for the product
+619,2 - Quality Non-Critical (QNC),Sample Allocation Request,"System shall restrict users allocating quantities for any product when any of their Sales Rep’s allocation go beyond the OHI limit.
+- Sum of all product's final Order Quantities > OHI Balance"
+620,2 - Quality Non-Critical (QNC),Sample Allocation Request,"System shall not allow users to allocate FSL3 Plus samples when they reach the RSM Limit.
+RSM Limit: Overall RSM Allocations for FSL3 Plus for all their Sales Reps should be less than or equal to 0."
+621,2 - Quality Non-Critical (QNC),Sample Allocation Request,"System shall not allow users to allocate FSL2 Plus samples when they reach the RSM Limit.
+RSM Limit: Overall RSM Allocations for FSL2 Plus for all their Sales Reps should be less than or equal to  ""number of DSS Reps reports to the RSM x 24"""
+622,2 - Quality Non-Critical (QNC),Sample Allocation Request,"The system shall allow all RSM and RD users to Submit the Sample Allocation Request for the current Sample Allocation cycle once the RSM/RD Allocations values are entered for all their Sales Representatives who are eligible to receive samples, and the ""RSM/RD Submission Status"" shall be updated to ""Submitted"" on submission."
+623,2 - Quality Non-Critical (QNC),Sample Allocation Request,System shall restrict RSM and RD users from updating the Sample Allocation Request details once the Sample Allocation Cycle is closed (Current DateTime > Cycle Close Date cutoff time.
+624,2 - Quality Non-Critical (QNC),Sample Allocation Request,The system shall refresh the OHI and pending shipments values for all Sales Representatives as per current system every day on scheduled time from Cycle Open date to Cycle Close date of the current cycle and display the last refreshed datetime note in the Sample Allocation Request page
+625,2 - Quality Non-Critical (QNC),Sample Allocation Request,System shall recalculate and auto-update the final orders following the default allocation logics for all products whenever there is a change in Sales Rep’s OHI or Pending Shipments value during OHI refresh.
+626,2 - Quality Non-Critical (QNC),Sample Allocation Request,"System shall auto-remove the default allocations or RSM allocations in multiples of boxes by following the ""Allocation Sequence"" given in the Sample Allocation Cycle when OHI balance is reduced during OHI refresh."
+627,2 - Quality Non-Critical (QNC),Sample Allocation Request,The system shall allow all Compliance users to update VTC for any Sales Representative and automatically save the Sample Allocation Request for the selected sample Allocation cycle
+628,2 - Quality Non-Critical (QNC),Sample Allocation Request,"System shall increase the OHI Limit and Maximum order as per Cycle configuration, recalculate and auto-update the final orders following the default allocation logics for all products when user modifies ""VTC"" in the Sample Allocation page."
+629,2 - Quality Non-Critical (QNC),Sample Allocation Request,"All Compliance users, RSMs, and RDs shall be able to download the Sample Allocation request data in .CSV format from the Sample Allocation Request page"
+630,2 - Quality Non-Critical (QNC),Sample Allocation Cycle,"The system shall send an automated email to all  RSMs and RDs on every Cycle Open date.  The email shall contain the following fields:
+
+From: <Who Clicks the button>
+Recipient: <RSM/RD>
+Subject: <As per the template>
+Email Body: <As per the template>"
+631,2 - Quality Non-Critical (QNC),Sample Allocation Cycle,"The system shall send an automated email to all  RSMs and RDs who have yet to submit the allocations for the current cycle RSM/RD Reminder date=Today.  The email shall contain the following fields:
+
+From: <Who created the Sample Allocation Cycle>
+Recipient: <RSM/RD>
+Subject: <As per the template>
+Email Body: <As per the template>"
+632,2 - Quality Non-Critical (QNC),Sample Allocation Cycle,"The system shall send an automated email to all  RSMs and RDs for the current cycle when Cycle Close date=Today.  The email shall contain the following fields:
+
+From: <Who created the Sample Allocation Cycle>
+Recipient: <RSM/RD>
+Subject: <As per the template>
+Email Body: <As per the template>"
+633,2 - Quality Non-Critical (QNC),Informatica,"Informatica shall run the job on every Sample Allocation Cycle close dates, to fetch all the Sample Allocation requests belongs to the current cycle and generate 2 separate text files(pipe delimited) in the below format and place the files in the FTP Path for VirtualForge consumption.
+Header File: <adc_myadclink_OrderRequestHeader_YYYYMMDD_5.txt>
+Details File: <adc_myadclink_OrderRequestLineItem_YYYYMMDD_5.txt>"
+634,2 - Quality Non-Critical (QNC),Informatica,"Informatica shall generate the header file for the current Sample Allocation Cycle with below format:
+- Address1 
+- Address2
+- City
+- State
+- Zip
+- Status (Constant value: ""Closed - Ready for fulfillment"")
+- Recipient_Last_Name
+- Recipient_First_Name
+- Middle_Initial
+- Suffix
+- Phone (Default to ""Blank"")
+- Email
+- Requestor_Name
+- Order_Type (Constant value: ""NON-AMF"")
+- User_Order_Reference_Id (Value: Territory ID+ShippingDate in YYYYMMDD format)
+- Order_Id (Value: ""SA""+Territory ID+ShippingDate in YYYYMMDD format)
+- Packing_Slip_with_Comments (Constant value: ""Product is being provided to an ADC employee for HCP sampling purposes. ADC employee will distribute product after obtaining an HCP signature and follow the current sampling process."")
+- Shipping_Instructions (Constant value: ""Direct signature required"")
+- Packing_Instructions (Constant value: <Blank>)
+- Order_Date (Value: Date when the file is generated)
+- Shipping_Method (Constant value: ""2-Day"")
+- Cost_Center (Constant value: ""P521"")
+- Contact_Title (Constant value: <Blank>)
+- State_License_Number (Constant value: <Blank>)
+- NPI (Constant value: <Blank>)
+- Facility_Type (Constant value: <Blank>)
+- Business_Name (Constant value: <Blank>)
+- Other_Street (Constant value: <Blank>)
+- Other_City (Constant value: <Blank>)
+- Other_State (Constant value: <Blank>)
+- Other_Zip (Constant value: <Blank>)"
+635,2 - Quality Non-Critical (QNC),Informatica,"Informatica shall generate the details file for the current Sample Allocation Cycle with below format:
+- Order_Detail_Id (Value: ""SA""+Territory ID+ShippingDate in YYYYMMDD format+Iterative Number)
+- Parent_Order_Id (Value: ""SA""+Territory ID+ShippingDate in YYYYMMDD format - Order ID from Header File)
+- Order_Date  (Value: Date when the file is generated)
+- SKU_Id
+- SKU_Short_Description
+- Quantity (Value: Final Orders)
+- Product_Group (Constant value: <Blank>)"
+636,2 - Quality Non-Critical (QNC),Informatica,"Informatica shall update the below values on Sample Allocation Cycle for auditing purposes once the file has been successfully placed in FTP path
+- File Transferred: Yes
+- Transfer Datetime: Current Datetime"
+637,2 - Quality Non-Critical (QNC),Informatica,Informatica shall send a success or failure email notification to the concerned users for every job run
+638,2 - Quality Non-Critical (QNC),Informatica,"System shall auto-include the following additional items in the Informatica-generated output text files with the same quantity whenever users allocate Readers product to Sales Reps for an allocation cycle.
+1. Welcome Letter
+2. FS Libre Return Label
+3. FS Libre Return Envelope"
